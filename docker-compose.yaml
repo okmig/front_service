@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  app:
+    container_name: app
+    build: ./docker
+    ports:
+      - "9000:80"
+    volumes:
+      - ./:/var/www
+    networks:
+      - my_app_network
+
+networks:
+  my_app_network:
+    name: service_network
+    external: true
